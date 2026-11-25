@@ -1,0 +1,24 @@
+{
+    "name": "tanbal/php-router",
+    "description": "A simple PHP router and backend utilities",
+    "type": "composer-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tanbal\\PhpRouter\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "tanbal8",
+            "email": "tanbal.derakhty@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "composer-plugin-api": "^2.0"
+    },
+    "extra": {
+        "class": "Tanbal\\PhpRouter\\InstallerPlugin"
+    }
+}

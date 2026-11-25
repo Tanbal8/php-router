@@ -1,0 +1,59 @@
+<?php
+
+namespace Tanbal\PhpRouter;
+
+use Composer\Composer;
+use Composer\IO\IOInterface;
+use Composer\Plugin\PluginInterface;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use FilesystemIterator;
+
+class InstallerPlugin implements PluginInterface
+{
+    public function activate(Composer $composer, IOInterface $io)
+    {
+        $source = dirname(__DIR__) . '/stubs/backend';
+        $destination = getcwd() . '/backend';
+
+        if (!is_dir($source)) {
+            $io->writeError('Backend stubs directory not found.');
+            return;
+        }
+
+        $iterator = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator(
+                $source,
+                FilesystemIterator::SKIP_DOTS
+            ),
+            RecursiveIteratorIterator::SELF_FIRST
+        );
+
+        foreach ($iterator as $item) {
+            $target = $destination . '/' . $iterator->getSubPathName();
+
+            if ($item->isDir()) {
+                if (!is_dir($target)) {
+                    mkdir($target, 0755, true);
+                }
+            } else {
+                if (!file_exists($target)) {
+                    copy($item->getPathname(), $target);
+                    $io->write("Created: backend/" . $iterator->getSubPathName());
+                } else {
+                    $io->write("Skipped: backend/" . $iterator->getSubPathName());
+                }
+            }
+        }
+
+        $io->write('Tanbal PHP Router installed.');
+    }
+
+    public function deactivate(Composer $composer, IOInterface $io)
+    {
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io)
+    {
+    }
+}
