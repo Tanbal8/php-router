@@ -39,11 +39,32 @@ class JSON {
         $filteredData = array_filter($data, function ($item) use ($id) {
             return $item['id'] != $id;
         });
-
         if (count($data) === count($filteredData)) {
             return false;
         }
-
         return $this->save(array_values($filteredData));
+    }
+
+    public function add($data) {
+        $items = $this->load();
+        $maxId = 0;
+        foreach ($items as $item) {
+            $maxId = max($maxId, $item['id']);
+        }
+        $data['id'] = $maxId + 1;
+        $items[] = $data;
+        return $this->save($items);
+    }
+
+    public function edit($id, $newData) {
+        $items = $this->load();
+        foreach ($items as $index => $item) {
+            if ($item['id'] == $id) {
+                $newData['id'] = $id;
+                $items[$index] = array_merge($item, $newData);
+                return $this->save($items);
+            }
+        }
+        return false;
     }
 }
