@@ -30,6 +30,10 @@ class InstallerPlugin implements PluginInterface
         );
 
         foreach ($iterator as $item) {
+            if ($item->getFilename() === '.gitkeep') {
+                continue;
+            }
+
             $target = $destination . '/' . $iterator->getSubPathName();
 
             if ($item->isDir()) {
