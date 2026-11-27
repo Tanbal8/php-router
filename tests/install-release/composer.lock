@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "tanbal/php-router",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Tanbal8/php-router.git",
-                "reference": "bc19e3a6941d91627e192b58bea6c6841c7b4bfc"
+                "reference": "cbff58902412abb2262d718c830923b56133ed67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tanbal8/php-router/zipball/bc19e3a6941d91627e192b58bea6c6841c7b4bfc",
-                "reference": "bc19e3a6941d91627e192b58bea6c6841c7b4bfc",
+                "url": "https://api.github.com/repos/Tanbal8/php-router/zipball/cbff58902412abb2262d718c830923b56133ed67",
+                "reference": "cbff58902412abb2262d718c830923b56133ed67",
                 "shasum": ""
             },
             "require": {
@@ -45,10 +45,10 @@
             "description": "A simple PHP router and backend utilities",
             "support": {
                 "issues": "https://github.com/Tanbal8/php-router/issues",
-                "source": "https://github.com/Tanbal8/php-router/tree/v1.0.0"
+                "source": "https://github.com/Tanbal8/php-router/tree/v1.0.1"
             },
-            "time": "2026-11-25T09:26:57+00:00",
-            "published-time": "2026-11-25T09:27:12+00:00"
+            "time": "2026-11-25T09:56:53+00:00",
+            "published-time": "2026-11-25T10:00:31+00:00"
         }
     ],
     "packages-dev": [],

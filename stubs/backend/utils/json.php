@@ -1,3 +1,4 @@
+
 <?php 
 
 class JSON {
@@ -33,16 +34,23 @@ class JSON {
         ) !== false;
     }
 
-    public function remove($id) {
+   public function remove($id) {
         $data = $this->load();
 
-        $filteredData = array_filter($data, function ($item) use ($id) {
-            return $item['id'] != $id;
-        });
-        if (count($data) === count($filteredData)) {
-            return false;
+        foreach ($data as $index => $item) {
+            if ($item['id'] == $id) {
+                $removedItem = $item;
+                unset($data[$index]);
+
+                if (!$this->save(array_values($data))) {
+                    return false;
+                }
+
+                return $removedItem;
+            }
         }
-        return $this->save(array_values($filteredData));
+
+        return false;
     }
 
     public function add($data) {
@@ -53,7 +61,12 @@ class JSON {
         }
         $data['id'] = $maxId + 1;
         $items[] = $data;
-        return $this->save($items);
+
+        if (!$this->save($items)) {
+            return false;
+        }
+
+        return $data;
     }
 
     public function edit($id, $newData) {
@@ -62,9 +75,15 @@ class JSON {
             if ($item['id'] == $id) {
                 $newData['id'] = $id;
                 $items[$index] = array_merge($item, $newData);
-                return $this->save($items);
+
+                if (!$this->save($items)) {
+                    return false;
+                }
+
+                return $items[$index];
             }
         }
+
         return false;
     }
 }
