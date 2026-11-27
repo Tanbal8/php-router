@@ -34,7 +34,8 @@ class InstallerPlugin implements PluginInterface
                 continue;
             }
 
-            $target = $destination . '/' . $iterator->getSubPathName();
+            $relativePath = $iterator->getSubPathName();
+            $target = $destination . '/' . $relativePath;
 
             if ($item->isDir()) {
                 if (!is_dir($target)) {
@@ -42,10 +43,22 @@ class InstallerPlugin implements PluginInterface
                 }
             } else {
                 if (!file_exists($target)) {
+                    if (!is_dir(dirname($target))) {
+                        mkdir(dirname($target), 0755, true);
+                    }
+
                     copy($item->getPathname(), $target);
-                    $io->write("Created: backend/" . $iterator->getSubPathName());
+                    $io->write("Created: backend/" . $relativePath);
                 } else {
-                    $io->write("Skipped: backend/" . $iterator->getSubPathName());
+                    if ($io->askConfirmation(
+                        "File backend/" . $relativePath . " already exists. Overwrite? [y/N] ",
+                        false
+                    )) {
+                        copy($item->getPathname(), $target);
+                        $io->write("Updated: backend/" . $relativePath);
+                    } else {
+                        $io->write("Skipped: backend/" . $relativePath);
+                    }
                 }
             }
         }
