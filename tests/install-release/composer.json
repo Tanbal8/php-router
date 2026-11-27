@@ -1,0 +1,17 @@
+{
+    "name": "tanbal/php-router-release-test",
+    "authors": [
+        {
+            "name": "tanbal8",
+            "email": "tanbal.derakhty@gmail.com"
+        }
+    ],
+    "require": {
+        "tanbal/php-router": "^1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "tanbal/php-router": true
+        }
+    }
+}

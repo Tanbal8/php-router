@@ -1,0 +1,55 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "c27439774b249a839bb509e4f8985500",
+    "packages": [
+        {
+            "name": "tanbal/php-router",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "../..",
+                "reference": "cbff58902412abb2262d718c830923b56133ed67"
+            },
+            "require": {
+                "composer-plugin-api": "^2.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Tanbal\\PhpRouter\\InstallerPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tanbal\\PhpRouter\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "tanbal8",
+                    "email": "tanbal.derakhty@gmail.com"
+                }
+            ],
+            "description": "A simple PHP router and backend utilities",
+            "transport-options": {
+                "relative": true
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "tanbal/php-router": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.11.0"
+}

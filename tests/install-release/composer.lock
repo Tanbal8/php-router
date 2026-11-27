@@ -1,0 +1,63 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "4a1088984e0e464957269f0d5f3d87f6",
+    "packages": [
+        {
+            "name": "tanbal/php-router",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Tanbal8/php-router.git",
+                "reference": "bc19e3a6941d91627e192b58bea6c6841c7b4bfc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Tanbal8/php-router/zipball/bc19e3a6941d91627e192b58bea6c6841c7b4bfc",
+                "reference": "bc19e3a6941d91627e192b58bea6c6841c7b4bfc",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Tanbal\\PhpRouter\\InstallerPlugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "Tanbal\\PhpRouter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "tanbal8",
+                    "email": "tanbal.derakhty@gmail.com"
+                }
+            ],
+            "description": "A simple PHP router and backend utilities",
+            "support": {
+                "issues": "https://github.com/Tanbal8/php-router/issues",
+                "source": "https://github.com/Tanbal8/php-router/tree/v1.0.0"
+            },
+            "time": "2026-11-25T09:26:57+00:00",
+            "published-time": "2026-11-25T09:27:12+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {},
+    "platform-dev": {},
+    "plugin-api-version": "2.11.0"
+}

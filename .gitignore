@@ -1,0 +1,4 @@
+
+# Test environments
+/tests/*/backend/
+/tests/*/vendor/
